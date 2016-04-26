@@ -1,0 +1,101 @@
+# Configuration Script
+#
+# This file can be used to configure the editor windows.
+
+#MENU '[designlink22.png] Search and order {\
+#                                          General : Run designlink-order.ulp -general; |\
+#                                          Schematic : Run designlink-order.ulp; \
+#                                          }'\
+#     '[pcb-service.png] PCB Service : Run pcb-service.ulp;'\
+
+
+										  
+BRD:
+
+#Menu Add Change Copy Delete Display Grid Group Move Name Quit Rect \
+#     Route Script Show Signal Split Text Value Via Window ';'  Wire Write Edit;
+MENU '[EAscript.png]EA SCR{\
+                                          EA Schematic Setup : Script EAProjectsetup.scr; |\
+										  Change Page Description : Run ChangeSchemPageAttribAssist.ulp; |\
+										  Print Sch & BRD : Script expatexport.scr; |\
+										  Show All : 	Display All; |\
+										  Nice Layout View : Script layers_for_layout.scr; |\
+										  Hide Labels : Script hide_label_layers.scr; |\
+										  Show Labels : Script show_label_layers.scr; |\
+                                          Revert Layers : Script revert_layers.scr; |\
+										  Show All Top : Script show_all_top_layers.scr; |\
+										  Show All Bottom : Script show_all_bottom_layers.scr; |\
+                                          Zoom Unrouted: Run zoom-unrouted.ulp; |\
+										  Bill of Materials : Run bom.ulp; |\
+										  Silk Gen : Run silk_gen.ulp; |\
+										  }\
+										  [designlink.png]Search and order {\
+                                          General : Run designlink-order.ulp -general; |\
+                                          Schematic : Run designlink-order.ulp;}\
+										  [LTspice.png] LT Spice simulation {\
+										  Export: RUN ltspice.ulp /E; |\
+										  Export Setup: RUN ltspice.ulp /E /S; |\
+										  Export Group: RUN ltspice.ulp /E /G; |\
+										  Import: RUN ltspice.ulp /I;      }\
+										  '
+
+SCH:
+
+Grid Default;
+Change Width 0.006;
+
+MENU '[EAscript.png]EA SCR{\
+                                          EA Schematic Setup : Script EAProjectsetup.scr; |\
+										  Change Page Description : Run ChangeSchemPageAttribAssist.ulp; |\
+										  Print Sch & BRD : Script expatexport.scr; |\
+										  Show All : 	Display All; |\
+										  Nice Layout View : Script layers_for_layout.scr; |\
+										  Hide Labels : Script hide_label_layers.scr; |\
+										  Show Labels : Script show_label_layers.scr; |\
+                                          Revert Layers : Script revert_layers.scr; |\
+										  Show All Top : Script show_all_top_layers.scr; |\
+										  Show All Bottom : Script show_all_bottom_layers.scr; |\
+                                         Zoom Unrouted: Run zoom-unrouted.ulp; |\
+										  Bill of Materials : Run bom.ulp; |\
+										  Silk Gen : Run silk_gen.ulp; |\
+										  }\
+										  [designlink.png]Search and order {\
+                                          General : Run designlink-order.ulp -general; |\
+                                          Schematic : Run designlink-order.ulp;}\
+										  [LTspice.png] LT Spice simulation {\
+										  Export: RUN ltspice.ulp /E; |\
+										  Export Setup: RUN ltspice.ulp /E /S; |\
+										  Export Group: RUN ltspice.ulp /E /G; |\
+										  Import: RUN ltspice.ulp /I;      }\
+										  '
+										  
+
+#By default
+#Menu Add Bus Change Copy Delete Display Gateswap Grid Group Invoke Junction \
+#     Label Move Name Net Pinswap Quit Script Show Split Value Window ';' \
+#     Wire Write Edit;
+
+LBR:
+
+#Menu Close Export Open Script Write ';' Edit;
+
+DEV:
+
+Grid Default;
+#Menu Add Change Copy Connect Delete Display Export Grid Move Name Package \
+#     Prefix Quit Script Show Value Window ';' Write Edit;
+
+SYM:
+
+Grid Default On;
+Change Width 0.010;
+#Menu Arc Change Copy Cut Delete Display Export Grid Group Move Name Paste \
+#     Pin Quit Script Show Split Text Value Window ';' Wire Write Edit;
+
+PAC:
+
+Grid Default On;
+Change Width 0.005;
+Change Size 0.050;
+#Menu Add Change Copy Delete Display Grid Group Move Name Pad Quit \
+#     Script Show Smd Split Text Window ';' Wire Write Edit;

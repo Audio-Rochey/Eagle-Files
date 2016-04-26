@@ -1,0 +1,7 @@
+# Rochey's PDF Export
+edit .sch
+WINDOW FIT
+PRINT LANDSCAPE SHEETS ALL FILE %N-sch.pdf
+edit .brd
+WINDOW FIT
+PRINT LANDSCAPE SHEETS ALL FILE %N-brd.pdf

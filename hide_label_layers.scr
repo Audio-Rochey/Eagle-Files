@@ -1,0 +1,3 @@
+#hide the name and value labels
+edit .brd;
+DISPLAY -25 -26 -27 -28;

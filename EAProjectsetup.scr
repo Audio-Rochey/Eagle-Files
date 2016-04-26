@@ -1,0 +1,8 @@
+#Set up project
+edit .sch;
+ADD FRAME_DINA4_L@EA-Frame_XML (0 0);
+WINDOW FIT;
+ATTRIBUTE * PROJECT 'Project Name'
+ATTRIBUTE * AUTHOR 'DHR'
+ATTRIBUTE *
+run ChangeSchemPageAttribAssist.ulp

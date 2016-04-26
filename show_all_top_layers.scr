@@ -1,0 +1,3 @@
+#Shaw all the top layers
+edit .brd;
+display none 1 17 18 19 20 21 23 25 51;

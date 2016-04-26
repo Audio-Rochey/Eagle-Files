@@ -1,0 +1,3 @@
+if (dlgMessageBox("To change page title, ATTTRIBUTE the Page Frame", "OK") == 0) {
+ // let's do it!
+ }
