@@ -1,20 +1,23 @@
 # Configuration Script
 #
 # This file can be used to configure the editor windows.
+#
+# Uncomment this if you want a set of useful default shortcuts!
+#SCRIPT default-assign.scr;
+#
 
-#MENU '[designlink22.png] Search and order {\
-#                                          General : Run designlink-order.ulp -general; |\
-#                                          Schematic : Run designlink-order.ulp; \
-#                                          }'\
-#     '[pcb-service.png] PCB Service : Run pcb-service.ulp;'\
+# Updated 1/28/2017 - A few edits to defaults etc. This is also based on Eagle 7.7
+# Many thanks to the tireless work done at sparkfun for their own defaults.
+# https://github.com/sparkfun/SparkFun_Eagle_Settings/blob/master/scr/eagle.scr
 
 
-										  
 BRD:
-
-#Menu Add Change Copy Delete Display Grid Group Move Name Quit Rect \
-#     Route Script Show Signal Split Text Value Via Window ';'  Wire Write Edit;
-MENU '[EAscript.png]EA SCR{\
+MENU '[designlink.png] Search and order : Run designlink-order.ulp -general;'\
+     '[pcb-service.png] PCB Service : Run pcb-service.ulp;'\
+     '[idf-3d.png] Export to IDF 3D format: Run eagleidfexporter.ulp;'\
+     '[autodesk-make.png] Manufacture...: Run manufacturing.ulp;'\
+     '[ecadio-logo.png] Export to ECAD.IO: Run ecadio.ulp;'\
+	 '[EAscript.png]EA SCR{\
                                           EA Schematic Setup : Script EAProjectsetup.scr; |\
 										  Change Page Description : Run ChangeSchemPageAttribAssist.ulp; |\
 										  Print Sch & BRD : Script expatexport.scr; |\
@@ -29,22 +32,40 @@ MENU '[EAscript.png]EA SCR{\
 										  Bill of Materials : Run bom.ulp; |\
 										  Silk Gen : Run silk_gen.ulp; |\
 										  }\
-										  [designlink.png]Search and order {\
-                                          General : Run designlink-order.ulp -general; |\
-                                          Schematic : Run designlink-order.ulp;}\
-										  [LTspice.png] LT Spice simulation {\
-										  Export: RUN ltspice.ulp /E; |\
-										  Export Setup: RUN ltspice.ulp /E /S; |\
-										  Export Group: RUN ltspice.ulp /E /G; |\
-										  Import: RUN ltspice.ulp /I;      }\
-										  '
+;
+
+#Setup Expat Audio Defaults
+Grid mm 1.27 on;
+Grid alt mm 0.0635;
+Set WIRE_BEND 1; #Route with 45 degree angles
+Set Drill 0.4; #Make vias 0.4mm
+Change Shape Round; #Make vias round
+Change Width 0.25; #Routing width default to 10mil or 0.25mm
+Change Isolate 0.5; #BHW Change polygon isolate to 20mil
+
+#Copied Text settings from the sparkfun settings
+Change Font Vector; #Make text on board in vector font
+Change Ratio 15;
+
+#Set Dimention Measure Tool Properties (Expat Audio)
+CHANGE DUNIT mm ON 2 #NOTES: Change default units to mm [ON | OFF] [precision]
+
+
 
 SCH:
-
 Grid Default;
-Change Width 0.006;
-
-MENU '[EAscript.png]EA SCR{\
+Change Width 0.006in;
+MENU '[designlink.png] Search and order {\
+                                          General : Run designlink-order.ulp -general; |\
+                                          Schematic : Run designlink-order.ulp; \
+                                          }'\
+     '[LTspice.png] LT Spice simulation {\
+                    Export: RUN ltspice.ulp /E; |\
+                    Export Setup: RUN ltspice.ulp /E /S; |\
+                    Export Group: RUN ltspice.ulp /E /G; |\
+                    Import: RUN ltspice.ulp /I; \
+     }' \
+	 '[EAscript.png]EA SCR{\
                                           EA Schematic Setup : Script EAProjectsetup.scr; |\
 										  Change Page Description : Run ChangeSchemPageAttribAssist.ulp; |\
 										  Print Sch & BRD : Script expatexport.scr; |\
@@ -59,43 +80,46 @@ MENU '[EAscript.png]EA SCR{\
 										  Bill of Materials : Run bom.ulp; |\
 										  Silk Gen : Run silk_gen.ulp; |\
 										  }\
-										  [designlink.png]Search and order {\
-                                          General : Run designlink-order.ulp -general; |\
-                                          Schematic : Run designlink-order.ulp;}\
-										  [LTspice.png] LT Spice simulation {\
-										  Export: RUN ltspice.ulp /E; |\
-										  Export Setup: RUN ltspice.ulp /E /S; |\
-										  Export Group: RUN ltspice.ulp /E /G; |\
-										  Import: RUN ltspice.ulp /I;      }\
-										  '
-										  
-
-#By default
-#Menu Add Bus Change Copy Delete Display Gateswap Grid Group Invoke Junction \
-#     Label Move Name Net Pinswap Quit Script Show Split Value Window ';' \
-#     Wire Write Edit;
+;
 
 LBR:
-
-#Menu Close Export Open Script Write ';' Edit;
+MENU '[designlink.png] Search and order : Run designlink-order.ulp -general;'\
+     '[LTspice.png] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[pads-pcb.png] PADS package import : RUN import-pads-powerpcb-v5;' \
+;
 
 DEV:
-
 Grid Default;
-#Menu Add Change Copy Connect Delete Display Export Grid Move Name Package \
-#     Prefix Quit Script Show Value Window ';' Write Edit;
+MENU '[designlink.png] Search and order : Run designlink-order.ulp -general;' \
+     '[LTspice.png] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  SpiceOrder : RUN spiceorder.ulp; |\
+                  SpiceModel: ATTRIBUTE SPICEMODEL |\
+                  Value2: ATTRIBUTE VALUE2 |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[pads-pcb.png] PADS package import : RUN import-pads-powerpcb-v5;'\
+;
 
 SYM:
-
 Grid Default On;
-Change Width 0.010;
-#Menu Arc Change Copy Cut Delete Display Export Grid Group Move Name Paste \
-#     Pin Quit Script Show Split Text Value Window ';' Wire Write Edit;
+Change Width 0.010in;
+MENU '[LTspice.png] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  SpiceOrder : RUN spiceorder.ulp; |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+;
 
 PAC:
-
 Grid Default On;
-Change Width 0.005;
-Change Size 0.050;
-#Menu Add Change Copy Delete Display Grid Group Move Name Pad Quit \
-#     Script Show Smd Split Text Window ';' Wire Write Edit;
+Change Width 0.005in;
+Change Size 0.050in;
+MENU '[LTspice.png] LT Spice simulation {\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[pads-pcb.png] PADS package import : RUN import-pads-powerpcb-v5;' \
+     ;
