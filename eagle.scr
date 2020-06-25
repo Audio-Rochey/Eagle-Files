@@ -54,7 +54,12 @@ CHANGE DUNIT mm ON 2 #NOTES: Change default units to mm [ON | OFF] [precision]
 
 SCH:
 Grid Default;
-Change Width 0.006in;
+Change Width 0.006in; ## Keep eveyrthing in inches... easier to get stuff to line up.
+Change size 0.05;  ## Added to shrink the size of text.
+Change font vector; ## Added to change the default text style.
+Change XREF ON; ## I prefer crossref on.
+
+
 MENU '[designlink.png] Search and order {\
                                           General : Run designlink-order.ulp -general; |\
                                           Schematic : Run designlink-order.ulp; \
